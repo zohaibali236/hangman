@@ -33,7 +33,7 @@ void hangman::loadWord()
 
         this->word = vectorArray.at(rnd);
 
-        std::cout << word;
+        //std::cout << word;
         loader.close();
     } 
     else
@@ -133,7 +133,7 @@ void hangman::printLetters(std::string input, char from, char to)
 
 void hangman::printAvailableLetters(std::string takenLetters)
 {
-    printStructure("AVAILABLE LETTERS", true, true);
+    printStructure("AVAILABLE LETTERS", false, true);
     printLetters(takenLetters, 'A', 'M');
     printLetters(takenLetters, 'N', 'Z');
 }
@@ -147,7 +147,7 @@ void hangman::printInputWord(std::string guess)
     for(int i = 0; i < this->word.length(); i++)
     {
         if(guess.find(this->word[i]) == -1)
-        {;
+        {
             string += "_ ";
         }
         else
@@ -190,6 +190,7 @@ int main()
         game.guesses += game.input;
         game.triesLeft();
     }
-    while(game.h_try < 10);   
+    while(game.h_try < 10);
+    getchar();   
     return 0;
 }
