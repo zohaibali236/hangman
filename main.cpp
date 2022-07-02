@@ -6,14 +6,14 @@
 
 #include "hangman.h"
 
-hangman::hangman()
+/*hangman::hangman()
 {
     this->h_try = 0;
     this->win = false;
 
-}
+}*/
 
-void hangman::loadWord()
+    hangman :: hangman()
 {
     std::ifstream loader("words.txt");
     
@@ -41,7 +41,7 @@ void hangman::loadWord()
         this->word = "NULL";
         this->win = true;
     }
-}
+ }
 
 void hangman::printStructure(std::string msg, bool top = false, bool bottom = false)
 {
@@ -177,7 +177,6 @@ int main()
 {
     srand(time(0));
     hangman game;
-    game.loadWord();
     do
     {
         // system("cls");
