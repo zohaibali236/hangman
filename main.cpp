@@ -6,15 +6,9 @@
 
 #include "hangman.h"
 
-/*hangman::hangman()
-{
-    this->h_try = 0;
-    this->win = false;
-
-}*/
-
     hangman :: hangman()
-{
+{    this->h_try = 0;
+    this->win = false;
     std::ifstream loader("words.txt");
     
     if(loader.is_open())
@@ -29,7 +23,7 @@
 
         rnd = std::rand() % vectorArray.size();
 
-        std::cout << vectorArray.size();
+        //std::cout << vectorArray.size();
 
         this->word = vectorArray.at(rnd);
 
