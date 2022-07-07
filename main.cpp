@@ -173,7 +173,7 @@ int main()
     hangman game;
     do
     {
-        // system("cls");
+         system("cls");
         game.printStructure("HANG MAN", 1, 1);
         game.printHangman();
         game.printAvailableLetters(game.guesses);
@@ -184,6 +184,5 @@ int main()
         game.triesLeft();
     }
     while(game.h_try < 10);
-    getchar();   
     return 0;
 }
