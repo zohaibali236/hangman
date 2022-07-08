@@ -173,8 +173,14 @@ void hangman::triesLeft()
 void hangman::play( )
 {
     do
-    {   
-        system("cls");
+    {
+        #if defined(_WIN32)
+            system("cls");
+        #elif defined(_WIN64)
+            system("cls");
+        #elif defined(__linux__)
+            system("clear");
+        #endif
         this->printStructure("HANG MAN", 1, 1);
         this->printHangman();
         this->printAvailableLetters(this->guesses);
