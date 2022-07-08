@@ -2,12 +2,10 @@
     #define __hangman
 class hangman
 {
-    public:
+    private:
         int h_try;
         char input;
         std::string guesses;
-
-    private:
         std::string word;
         bool win;
 
@@ -31,8 +29,5 @@ class hangman
         void play( );
 
         bool checkForWin();
-
-
-
 };
 #endif
