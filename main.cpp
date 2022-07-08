@@ -167,22 +167,43 @@ void hangman::triesLeft()
     }
 }
 
+
+
+void hangman :: play( )
+{
+    do
+    {   system("cls");
+        this->printStructure("HANG MAN", 1, 1);
+        this->printHangman();
+        this->printAvailableLetters(this->guesses);
+        this->printInputWord(this->guesses);
+        std::cout << ">";
+        std::cin >> this->input;
+        this->guesses += this->input;
+        this->triesLeft();
+    }
+    while( this->h_try < 10);
+    std::cout <<"you lost";
+   }
+
 int main()
 {
     srand(time(0));
-    hangman game;
-    do
+    hangman *game;
+    game = new hangman;
+    game->play();
+    delete game;
+    int number = 0;
+    std::cout<< "if you want to continue press 0 or press any other key to exit ";
+    std::cin>>number;
+    if( number == 0)
     {
-         system("cls");
-        game.printStructure("HANG MAN", 1, 1);
-        game.printHangman();
-        game.printAvailableLetters(game.guesses);
-        game.printInputWord(game.guesses);
-        std::cout << ">";
-        std::cin >> game.input;
-        game.guesses += game.input;
-        game.triesLeft();
+    srand(time(0));
+    hangman *game;
+    game = new hangman;
+    game -> play();
+    delete game;
     }
-    while(game.h_try < 10);
+    else
     return 0;
 }

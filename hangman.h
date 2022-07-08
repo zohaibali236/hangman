@@ -27,6 +27,8 @@ class hangman
         void printInputWord(std::string);
 
         void triesLeft();
+        
+        void play( );
 
         bool checkForWin();
 
