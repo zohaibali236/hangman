@@ -38,14 +38,12 @@ void hangman::printStructure(std::string msg, bool top = false, bool bottom = fa
     else
         std::cout << "|";
     
-    bool truth = true;
-    for(int i = msg.length(); i < 33; i++)
+    for(int i = msg.length(), truth = true; i < 33; i++, truth = !truth)
     {
         if(truth)
             msg = " " + msg;
         else
             msg = msg + " ";
-        truth = !truth;
     }
     std::cout << msg;
     if(bottom)
@@ -129,7 +127,7 @@ void hangman::printInputWord(std::string guess)
 
     std::string string;
 
-    for(int i = 0; i < this->word.length(); i++)
+    for(int i = 0, j = this->word.length(); i < j; i++)
     {
         if(guess.find(this->word[i]) == -1)
         {
@@ -147,7 +145,7 @@ void hangman::printInputWord(std::string guess)
 bool hangman::checkForWin()
 {
     std::string temp;
-    for(int i=0; i < this->guesses.length(); i++)
+    for(int i = 0, j = this->guesses.length(); i < j; i++)
     {
         if((this->word.find(this->guesses[i])) != -1)
         {
