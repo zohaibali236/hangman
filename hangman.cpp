@@ -154,10 +154,24 @@ bool hangman::checkForWin()
             temp += this->guesses[i];
         }
     }
-    if(this->word == temp)
-        this->win = true;
 
-    else this->win = false;
+    this->win = false;
+    std::string temp2;
+    for(int i = 0, j = this->word.length(); i < j; i++)
+    {
+        for(int k = 0; k < j; k++)
+        {
+            if(this->word[i] == temp[k])
+            {
+                temp2 += temp[k];
+            }
+        }
+    }
+
+    std::cout << temp << std::endl << temp2 << std::endl;
+
+    if(this->word == temp2)
+        this->win = true;
 
     return this->win;
 }
@@ -168,6 +182,25 @@ void hangman::triesLeft()
     {
         this->h_try++;
     }
+}
+
+bool hangman::checkFoDuplicate() const
+{
+    if(this->guesses.empty())
+        return false;
+
+    bool _bool;
+
+    for(int i = 0, j = this->guesses.length(); i < j; i++)
+    {
+        if(this->guesses[i] == this->input)
+        {
+            _bool = true;
+            break;
+        }
+        else _bool = false;
+    }
+    return _bool;
 }
 
 void hangman::play( )
@@ -188,7 +221,15 @@ void hangman::play( )
         std::cout << ">";
         std::cin >> this->input;
         this->input = toupper(this->input);
-        this->guesses += this->input;
+        if(!(this->checkFoDuplicate()))
+        {
+            this->guesses += this->input;
+        }
+        else
+        {
+            std::cout << "> This character is already used";
+            Sleep(500);
+        }
         this->triesLeft();
         this->checkForWin();
     }

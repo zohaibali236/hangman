@@ -4,6 +4,12 @@
 #include <vector>
 #include <time.h>
 
+#ifdef _WIN32
+    #include <Windows.h>
+#else
+    #include <unistd.h>
+#endif
+
 #include "hangman.cpp"
 
 int main()
@@ -12,7 +18,7 @@ int main()
     hangman *game;
     game = new hangman;
     game->play();
-    delete game;
+    delete(game);
     std::string input;
     std::cout << "\nType \"play\" to start over\n";
     std::cin >> input;
@@ -23,7 +29,7 @@ int main()
         hangman *game;
         game = new hangman;
         game->play();
-        delete game;
+        delete(game);
         std::cout << "\nType \"play\" to start over\n";
         std::cin >> input;
     

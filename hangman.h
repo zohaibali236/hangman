@@ -29,5 +29,7 @@ class hangman
         void play( );
 
         bool checkForWin();
+
+        bool checkFoDuplicate() const;
 };
 #endif
