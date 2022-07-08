@@ -168,8 +168,6 @@ bool hangman::checkForWin()
         }
     }
 
-    std::cout << temp << std::endl << temp2 << std::endl;
-
     if(this->word == temp2)
         this->win = true;
 
@@ -228,7 +226,7 @@ void hangman::play( )
         else
         {
             std::cout << "> This character is already used";
-            Sleep(500);
+            Sleep(5*100);
         }
         this->triesLeft();
         this->checkForWin();
@@ -246,4 +244,6 @@ void hangman::play( )
         std::cout << "You won!! Great :)";
     }
     else std::cout << "You lost!! Bad luck :(";
+
+    Sleep(2*100);
 }

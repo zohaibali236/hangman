@@ -15,24 +15,20 @@
 int main()
 {
     srand(time(0));
-    hangman *game;
-    game = new hangman;
-    game->play();
-    delete(game);
-    std::string input;
-    std::cout << "\nType \"play\" to start over\n";
-    std::cin >> input;
-    
-    while
-    (input == "play")
+
+    std::string input = "play";
+
+    do
     {
         hangman *game;
         game = new hangman;
         game->play();
         delete(game);
-        std::cout << "\nType \"play\" to start over\n";
-        std::cin >> input;
-    
+
+        std::cout << "\nType \"play\" to start over or press any key to exit\n";
+        std::cin >> input;    
     }
+    while(input == "play");
+    Sleep(3*100);
     return 0;
 }
