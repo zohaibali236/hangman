@@ -9,7 +9,7 @@ hangman::hangman()
     if(loader.is_open())
     {
         std::string temp;        
-        std::vector<std::string> vectorArray;
+        std::vector <std::string> vectorArray;
 
         while(std::getline(loader, temp))
             vectorArray.push_back(temp);   

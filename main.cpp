@@ -16,12 +16,17 @@ int main()
     std::string input;
     std::cout << "\nType \"play\" to start over\n";
     std::cin >> input;
-    if(input == "play")
+    
+    while
+    (input == "play")
     {
         hangman *game;
         game = new hangman;
         game->play();
         delete game;
+        std::cout << "\nType \"play\" to start over\n";
+        std::cin >> input;
+    
     }
-    else return 0;
+    return 0;
 }
