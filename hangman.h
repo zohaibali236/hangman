@@ -30,7 +30,7 @@ class hangman
         
         void play();
 
-        bool checkForWin();
+        void checkForWin();
 
         bool checkFoDuplicate() const;
 };

@@ -162,7 +162,7 @@ void hangman::printInputWord()
     printStructure(string, 0, 1);
 }
 
-bool hangman::checkForWin()
+void hangman::checkForWin()
 {
     std::string temp;
     for(int i = 0, j = this->guesses.length(); i < j; i++)
@@ -189,7 +189,6 @@ bool hangman::checkForWin()
     if(this->word == temp2)
         this->win = true;
 
-    return this->win;
 }
 
 void hangman::triesLeft()
@@ -249,9 +248,9 @@ void hangman::play( )
         this->triesLeft();
         this->checkForWin();
     }
-    while(this->h_try < 10 && !this->checkForWin());
+    while(this->h_try < 10 && !this->win);
 
-    if(this->checkForWin())
+    if(this->win)
     {
         #if defined(_WIN32)
             system("cls");
