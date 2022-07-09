@@ -14,19 +14,21 @@ class hangman
 
         void loadWord();
 
-        void printStructure(std::string, bool, bool) ;
+        void loadWord(std::string);
+
+        void printStructure(std::string, bool, bool);
 
         void printHangman();
 
-        void printLetters(std::string, char, char);
+        void printLetters(char, char);
 
-        void printAvailableLetters(std::string);
+        void printAvailableLetters();
 
-        void printInputWord(std::string);
+        void printInputWord();
 
         void triesLeft();
         
-        void play( );
+        void play();
 
         bool checkForWin();
 

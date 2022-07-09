@@ -4,6 +4,27 @@ hangman::hangman()
 {    
     this->h_try = 0;
     this->win = false;
+    this->input = '\0';
+    this->guesses = "";
+    this->word = "";
+
+}
+void hangman::loadWord(std::string inputWord)
+{
+    this->word = inputWord;
+
+    std::ofstream loader("words.txt", std::ios_base::app);
+
+    if(loader.is_open())
+    {
+        loader << inputWord;
+    }
+
+    loader.close();
+
+}
+void hangman::loadWord()
+{
     std::ifstream loader("words.txt");
     
     if(loader.is_open())
@@ -17,15 +38,14 @@ hangman::hangman()
         int rnd = (std::rand() % vectorArray.size());
 
         this->word = vectorArray.at(rnd);
-
-        loader.close();
-
     } 
     else
     {
         this->word = "NULL";
         this->win = true;
     }
+    loader.close();
+
 }
 
 void hangman::printStructure(std::string msg, bool top = false, bool bottom = false)
@@ -97,13 +117,13 @@ void hangman::printHangman()
         printStructure("");
 }
 
-void hangman::printLetters(std::string input, char from, char to)
+void hangman::printLetters(char from, char to)
 {
     std::string string;
 
     for(char i = from; i <= to; i++)
     {
-        if(input.find(i) == -1)
+        if(this->guesses.find(i) == -1)
         {
             string += i;
             string += " ";
@@ -114,14 +134,14 @@ void hangman::printLetters(std::string input, char from, char to)
     printStructure(string);
 }
 
-void hangman::printAvailableLetters(std::string takenLetters)
+void hangman::printAvailableLetters()
 {
     printStructure("AVAILABLE LETTERS", false, true);
-    printLetters(takenLetters, 'A', 'M');
-    printLetters(takenLetters, 'N', 'Z');
+    printLetters('A', 'M');
+    printLetters('N', 'Z');
 }
 
-void hangman::printInputWord(std::string guess)
+void hangman::printInputWord()
 {
     printStructure("GUESS THE WORD", true, true);
 
@@ -129,7 +149,7 @@ void hangman::printInputWord(std::string guess)
 
     for(int i = 0, j = this->word.length(); i < j; i++)
     {
-        if(guess.find(this->word[i]) == -1)
+        if(this->guesses.find(this->word[i]) == -1)
         {
             string += "_ ";
         }
@@ -212,8 +232,8 @@ void hangman::play( )
         #endif
         this->printStructure("HANG MAN", 1, 1);
         this->printHangman();
-        this->printAvailableLetters(this->guesses);
-        this->printInputWord(this->guesses);
+        this->printAvailableLetters();
+        this->printInputWord();
         std::cout << ">";
         std::cin >> this->input;
         this->input = toupper(this->input);
@@ -224,7 +244,7 @@ void hangman::play( )
         else
         {
             std::cout << "> This character is already used";
-            Sleep(5*100);
+            Sleep(8*100);
         }
         this->triesLeft();
         this->checkForWin();
@@ -233,11 +253,18 @@ void hangman::play( )
 
     if(this->checkForWin())
     {
-        system("cls");
+        #if defined(_WIN32)
+            system("cls");
+        #elif defined(_WIN64)
+            system("cls");
+        #elif defined(__linux__)
+            system("clear");
+        #endif
+
         this->printStructure("HANG MAN", 1, 1);
         this->printHangman();
-        this->printAvailableLetters(this->guesses);
-        this->printInputWord(this->guesses);
+        this->printAvailableLetters();
+        this->printInputWord();
 
         std::cout << "You won!! Great :)";
     }
