@@ -17,7 +17,7 @@ void hangman::loadWord(std::string inputWord)
 
     if(loader.is_open())
     {
-        loader << inputWord;
+        loader << inputWord <<std::endl;
     }
 
     loader.close();
