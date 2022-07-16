@@ -3,16 +3,8 @@
 
     #define __hangman
 class hangman : public gamemanager
-
-{
-   
+{  
     public:
-        hangman();
-
-        void loadWord(std::string inputWord);
-
-        void loadWord();
-
         void printStructure(std::string, bool, bool);
 
         void printHangman();
@@ -23,10 +15,6 @@ class hangman : public gamemanager
 
         void printInputWord();
 
-        
-        
         void play();
-
-        
 };
 #endif

@@ -11,7 +11,6 @@ class gamemanager
         
 
     public:
-
     gamemanager();
 
     void loadWord();
@@ -22,7 +21,6 @@ class gamemanager
 
     void printHangman();
         
-   
     void checkForWin();
 
     bool checkFoDuplicate() const;

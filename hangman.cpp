@@ -1,41 +1,4 @@
 #include "hangman.h"
-#include"gamemanager.cpp"
-#include"gamemanager.h"
-hangman::hangman()
-{    
-    /*this->h_try = 0;
-    this->win = false;
-    this->input = '\0';
-    this->guesses = "";
-    this->word = "";*/
-
-}
-
-/*
-void hangman::loadWord()
-{
-    std::ifstream loader("words.txt");
-    
-    if(loader.is_open())
-    {
-        std::string temp;        
-        std::vector <std::string> vectorArray;
-
-        while(std::getline(loader, temp))
-            vectorArray.push_back(temp);   
-
-        int rnd = (std::rand() % vectorArray.size());
-
-        this->word = vectorArray.at(rnd);
-    } 
-    else
-    {
-        this->word = "NULL";
-        this->win = true;
-    }
-    loader.close();
-
-}*/
 
 void hangman::printStructure(std::string msg, bool top = false, bool bottom = false)
 {

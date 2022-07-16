@@ -1,13 +1,13 @@
 #include"gamemanager.h"
 
-gamemanager :: gamemanager()
+gamemanager::gamemanager()
 {
     this->h_try = 0;
     this->win = false;
     this->input = '\0';
     this->guesses = "";
     this->word = "";
-    
+ 
 }
 
 void gamemanager::loadWord(std::string inputWord)
@@ -18,7 +18,7 @@ void gamemanager::loadWord(std::string inputWord)
 
     if(loader.is_open())
     {
-        loader << inputWord <<"\n";
+        loader << std::endl << inputWord;
     }
 
     loader.close();
