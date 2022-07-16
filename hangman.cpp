@@ -1,28 +1,17 @@
 #include "hangman.h"
-
+#include"gamemanager.cpp"
+#include"gamemanager.h"
 hangman::hangman()
 {    
-    this->h_try = 0;
+    /*this->h_try = 0;
     this->win = false;
     this->input = '\0';
     this->guesses = "";
-    this->word = "";
+    this->word = "";*/
 
 }
-void hangman::loadWord(std::string inputWord)
-{
-    this->word = inputWord;
 
-    std::ofstream loader("words.txt", std::ios_base::app);
-
-    if(loader.is_open())
-    {
-        loader << inputWord <<std::endl;
-    }
-
-    loader.close();
-
-}
+/*
 void hangman::loadWord()
 {
     std::ifstream loader("words.txt");
@@ -46,7 +35,7 @@ void hangman::loadWord()
     }
     loader.close();
 
-}
+}*/
 
 void hangman::printStructure(std::string msg, bool top = false, bool bottom = false)
 {
@@ -162,61 +151,6 @@ void hangman::printInputWord()
     printStructure(string, 0, 1);
 }
 
-void hangman::checkForWin()
-{
-    std::string temp;
-    for(int i = 0, j = this->guesses.length(); i < j; i++)
-    {
-        if((this->word.find(this->guesses[i])) != -1)
-        {
-            temp += this->guesses[i];
-        }
-    }
-
-    this->win = false;
-    std::string temp2;
-    for(int i = 0, j = this->word.length(); i < j; i++)
-    {
-        for(int k = 0; k < j; k++)
-        {
-            if(this->word[i] == temp[k])
-            {
-                temp2 += temp[k];
-            }
-        }
-    }
-
-    if(this->word == temp2)
-        this->win = true;
-
-}
-
-void hangman::triesLeft()
-{
-    if(this->word.find(this->input) == -1)
-    {
-        this->h_try++;
-    }
-}
-
-bool hangman::checkFoDuplicate() const
-{
-    if(this->guesses.empty())
-        return false;
-
-    bool _bool;
-
-    for(int i = 0, j = this->guesses.length(); i < j; i++)
-    {
-        if(this->guesses[i] == this->input)
-        {
-            _bool = true;
-            break;
-        }
-        else _bool = false;
-    }
-    return _bool;
-}
 
 void hangman::play( )
 {

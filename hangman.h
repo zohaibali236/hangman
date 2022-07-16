@@ -1,20 +1,17 @@
+#include"gamemanager.h"
 #ifndef __hangman
-    #define __hangman
-class hangman
-{
-    private:
-        int h_try;
-        char input;
-        std::string guesses;
-        std::string word;
-        bool win;
 
+    #define __hangman
+class hangman : public gamemanager
+
+{
+   
     public:
         hangman();
 
-        void loadWord();
+        void loadWord(std::string inputWord);
 
-        void loadWord(std::string);
+        void loadWord();
 
         void printStructure(std::string, bool, bool);
 
@@ -26,12 +23,10 @@ class hangman
 
         void printInputWord();
 
-        void triesLeft();
+        
         
         void play();
 
-        void checkForWin();
-
-        bool checkFoDuplicate() const;
+        
 };
 #endif

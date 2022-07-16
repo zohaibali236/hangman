@@ -10,7 +10,11 @@
     #include <unistd.h>
 #endif
 
+#include"hangman.h"
+#include"gamemanager.cpp"
 #include "hangman.cpp"
+
+
 
 int main()
 {
