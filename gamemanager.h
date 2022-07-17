@@ -1,4 +1,4 @@
-#ifndef _gamemanager
+#if !defined(_gamemanager)
   #define _gamemanager
 class gamemanager 
 {
@@ -26,5 +26,3 @@ class gamemanager
     bool checkFoDuplicate() const;
 };
 #endif
-
-

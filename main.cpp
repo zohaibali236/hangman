@@ -5,13 +5,14 @@
 #include <time.h>
 
 #ifdef _WIN32
-    #include <Windows.h>
+    #include <windows.h>
 #else
     #include <unistd.h>
 #endif
 
 #include "gamemanager.cpp"
 #include "hangman.cpp"
+#include "gamemanager.h"
 
 
 int main()
@@ -31,9 +32,7 @@ int main()
         {
             #if defined(_WIN32)
                 system("cls");
-            #elif defined(_WIN64)
-                system("cls");
-            #elif defined(__linux__)
+            #else
                 system("clear");
             #endif
 

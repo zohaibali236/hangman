@@ -1,6 +1,4 @@
-#include"gamemanager.h"
-#ifndef __hangman
-
+#if !defined(__hangman)
     #define __hangman
 class hangman : public gamemanager
 {  

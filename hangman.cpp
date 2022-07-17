@@ -121,9 +121,7 @@ void hangman::play( )
     {
         #if defined(_WIN32)
             system("cls");
-        #elif defined(_WIN64)
-            system("cls");
-        #elif defined(__linux__)
+        #else
             system("clear");
         #endif
         this->printStructure("HANG MAN", 1, 1);
@@ -151,12 +149,9 @@ void hangman::play( )
     {
         #if defined(_WIN32)
             system("cls");
-        #elif defined(_WIN64)
-            system("cls");
-        #elif defined(__linux__)
+        #else
             system("clear");
         #endif
-
         this->printStructure("HANG MAN", 1, 1);
         this->printHangman();
         this->printAvailableLetters();
