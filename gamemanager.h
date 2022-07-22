@@ -1,5 +1,11 @@
 #if !defined(_gamemanager)
-  #define _gamemanager
+	#define _gamemanager
+	
+    #include <string>
+    #include <fstream>
+    #include <vector>
+    #include <time.h>
+
 class gamemanager 
 {
     protected:

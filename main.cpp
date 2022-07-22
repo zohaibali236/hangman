@@ -1,19 +1,4 @@
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <vector>
-#include <time.h>
-
-#ifdef _WIN32
-    #include <windows.h>
-#else
-    #include <unistd.h>
-#endif
-
-#include "gamemanager.cpp"
-#include "hangman.cpp"
-#include "gamemanager.h"
-
+#include "hangman.h"
 
 int main()
 {

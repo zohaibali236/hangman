@@ -49,7 +49,6 @@ void gamemanager::loadWord()
 
 }
 
-
 void gamemanager::checkForWin()
 {
     std::string temp;
@@ -106,5 +105,3 @@ bool gamemanager::checkFoDuplicate() const
     }
     return _bool;
 }
-
-
