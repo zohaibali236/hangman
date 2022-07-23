@@ -163,3 +163,5 @@ void hangman::play( )
 
     Sleep(2*100);
 }
+
+hangman::~hangman() {}

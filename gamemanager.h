@@ -17,18 +17,20 @@ class gamemanager
         
 
     public:
-    gamemanager();
+        gamemanager();
 
-    void loadWord();
+        void loadWord();
 
-    void loadWord(std::string);
-         
-    void triesLeft();
+        void loadWord(std::string);
+            
+        void triesLeft();
 
-    void printHangman();
-        
-    void checkForWin();
+        void printHangman();
+            
+        void checkForWin();
 
-    bool checkFoDuplicate() const;
+        bool checkFoDuplicate() const;
+
+        virtual ~gamemanager();
 };
 #endif

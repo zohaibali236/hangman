@@ -29,5 +29,7 @@ class hangman : public gamemanager
         void printInputWord();
 
         void play();
+
+        ~hangman();
 };
 #endif

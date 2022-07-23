@@ -7,7 +7,6 @@ gamemanager::gamemanager()
     this->input = '\0';
     this->guesses = "";
     this->word = "";
- 
 }
 
 void gamemanager::loadWord(std::string inputWord)
@@ -105,3 +104,5 @@ bool gamemanager::checkFoDuplicate() const
     }
     return _bool;
 }
+
+gamemanager::~gamemanager() {}
